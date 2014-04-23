@@ -92,10 +92,24 @@ void DriverCode()
         }
     }
     //TEST PUBLIC FUNCTIONS WITH 10 NODE TREE
-    cout<<"Testing the insert function with a random 10 node tree"<<endl;
+    //INSERT
+    cout<<"Testing the insert function with a random 10 node tree: "<<endl;
     BinarySearch tester;
     for( int i=0; i<10; i++)
     {
         tester.Insert(wordHolder.at(i));
     }
+    tester.Display();
+
+    //FIND
+    found = tester.Find(wordHolder.at(3));
+    cout<<"Check for a word that IS in the tree (should be 1): "<<found<<endl;
+    found  = tester.Find(wordHolder.at(500));
+    cout<<"Check for a word that is NOT in the tree (should be 0): "<<found<<endl;
+
+    //SIZE
+    cout<<"The size of the tree should be ten. It is: "<<tester.Size()<<endl;
+
+    //HEIGHT
+    cout<<"The height of the tree is: "<<tester.Height()<<endl;
 }

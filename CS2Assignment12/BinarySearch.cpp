@@ -1,4 +1,5 @@
 #include "BinarySearch.h"
+#include <iostream>
 
 //TREENODE CONSTRUCTORS
 TreeNode::TreeNode()
@@ -107,7 +108,13 @@ int BinarySearch::RHeight (TreeNode*& ptr)
 }
 void BinarySearch::RDisplay (TreeNode*& ptr)
 {
-
+    if(ptr==NULL) return;
+    else
+    {
+        cout<<ptr->name<<endl;
+        RDisplay(ptr->ptrLeft);
+        RDisplay(ptr->ptrRight);
+    }
 }
 BinarySearch::~BinarySearch()
 {
