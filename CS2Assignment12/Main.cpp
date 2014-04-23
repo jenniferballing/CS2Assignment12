@@ -8,33 +8,10 @@
 
 using namespace std;
 void DriverCode();
-int main(){
-    BinarySearch first;
-    
-    //INSERT
-    first.Insert("math");
-    first.Insert("zebras");
-    first.Insert("apple");
-    first.Insert("appl");
-    first.Insert("app");
-    first.Insert("ap");
-    first.Insert("sappy");
-    
-    //FIND
-    cout<<"Should be 1"<<endl<<first.Find("apple")<<endl;
-    cout<<"Should be 0"<<endl<<first.Find("apes")<<endl;
-    
-    //COPY CONSTRUCTOR
-    BinarySearch second(first);
-    cout<<"Should be 1"<<endl<<second.Find("math")<<endl;
-    cout<<"Should be 0"<<endl<<second.Find("me")<<endl;
-
-    //SIZE
-    cout<<"Should be 7: "<<endl<<first.Size()<<endl;
-
-    //HEIGHT
-    cout<<"Should be 4: "<<endl<<first.Height()<<endl;
+int main()
+{
     DriverCode();
+
     system("pause");
     return 0;
 }
@@ -49,9 +26,12 @@ void DriverCode()
     while(!fin.eof())
     {
         fin>>word;
-        wordHolder.push_back(word);
+        if(word != "")
+        {
+            wordHolder.push_back(word);
+        }        
     }
-    
+        
     //RANDOMIZE
     random_shuffle (wordHolder.begin(), wordHolder.end());
 
@@ -89,16 +69,33 @@ void DriverCode()
             }
         }
         letterWords.push_back(letWord);
-        cout<<letWord<<" ";
     }
+
     //LOOP THROUGH LETTER VECTOR CHECKING FIND
     bool found;
-    for( unsigned int i=0; i<letterWords.size(); i++)
+    string tempWord;
+    char parsed;
+    for (unsigned int i=0; i<letterWords.size(); i++)
     {
-        found = tree.Find(letterWords.at(i));
+        tempWord = letterWords.at(i);
+
+        //SWITCH TO LOWER
+        for(unsigned int j=0; j<tempWord.size(); j++)
+        {
+            parsed = tolower(tempWord[j]);
+            tempWord[j] = parsed;
+        }
+        found = tree.Find(tempWord);
         if(!found)
         {
             cout<<"The word: "<<letterWords.at(i)<<" is misspelled."<<endl;
         }
+    }
+    //TEST PUBLIC FUNCTIONS WITH 10 NODE TREE
+    cout<<"Testing the insert function with a random 10 node tree"<<endl;
+    BinarySearch tester;
+    for( int i=0; i<10; i++)
+    {
+        tester.Insert(wordHolder.at(i));
     }
 }

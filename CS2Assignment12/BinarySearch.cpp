@@ -42,6 +42,10 @@ int BinarySearch::Height ()
 {
     return RHeight(root);
 }
+void BinarySearch::Display()
+{
+    RDisplay(root);
+}
 
 //RECURSIVE
 void BinarySearch::RCopy(TreeNode*& thisRoot, TreeNode*& sourceRoot)
@@ -100,6 +104,10 @@ int BinarySearch::RHeight (TreeNode*& ptr)
         return max(l, r);
     }
     return 1+max(l, r);
+}
+void BinarySearch::RDisplay (TreeNode*& ptr)
+{
+
 }
 BinarySearch::~BinarySearch()
 {

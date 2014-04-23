@@ -25,12 +25,14 @@ public:
     bool Find (string n);
     int Size ();
     int Height ();
+    void Display();
     ~BinarySearch();
 private:
     void RCopy(TreeNode*& , TreeNode*&);
     void RInsert (string n, TreeNode*& ptr);
     bool RFind (string n, TreeNode*& ptr);
     int RSize (TreeNode*& ptr);
+    void RDisplay (TreeNode*& ptr);
     int RHeight (TreeNode*& ptr);   
 };
 #endif
