@@ -60,6 +60,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BinarySearch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BinarySearch.cpp" />
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Dictionary.txt" />
+    <None Include="Letter.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
